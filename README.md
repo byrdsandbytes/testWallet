@@ -8,6 +8,14 @@ A tool to add positive and negative Transactions to an account
 
 ## Getting Started
 
+### Prequistes
+
+You need angular to run this project
+
+`````
+npm install -g @angular/cli
+`````
+
 ### Installing
 
 Install:
