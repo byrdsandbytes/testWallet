@@ -45,8 +45,8 @@ export class TransactionDetailsPage implements OnInit {
   }
 
   addTransaction() {
-
-    if (this.walletBalance > this.transaction.amount) {
+    console.log("Wallet Balance is:", this.walletBalance);
+    if (this.transaction.amount < 0 && -this.transaction.amount >= this.walletBalance ) {
         this.showToast('Wallet Balance not enough');
     } else {
       this.transactionService.addTransaction(this.transaction).then(() => {
