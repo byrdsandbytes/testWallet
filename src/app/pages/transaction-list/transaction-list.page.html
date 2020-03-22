@@ -1,9 +1,30 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>transaction-list</ion-title>
+    <ion-title>Transaction List</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-text *ngIf="(transactions|async) as transaction" class="ion-text-center">
+    <p>CHF</p>
+    <h1 class="ion-padding-horizontal">
+      {{walletBalance | number: '1.2-2'}}
+    </h1>
+  </ion-text>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button routerLink="/transaction">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+ 
+  <ion-list>
+    <ion-item button [routerLink]="['/transaction', transaction.id]" *ngFor="let transaction of (transactions | async)">
+      {{ transaction.name }}
+      <ion-note slot="end">
+        {{transaction.amount | number: '1.2-2'}} {{transaction.currency}}
+      </ion-note>
+    </ion-item>
+  </ion-list>
 
 </ion-content>

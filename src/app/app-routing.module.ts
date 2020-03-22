@@ -4,14 +4,18 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () => import('./pages/transaction-list/transaction-list.module').then( m => m.TransactionListPageModule)
   },
   {
     path: 'transaction-list',
     loadChildren: () => import('./pages/transaction-list/transaction-list.module').then( m => m.TransactionListPageModule)
   },
   {
-    path: 'transaction-details',
+    path: 'transaction',
+    loadChildren: () => import('./pages/transaction-details/transaction-details.module').then( m => m.TransactionDetailsPageModule)
+  },
+  {
+    path: 'transaction/:id',
     loadChildren: () => import('./pages/transaction-details/transaction-details.module').then( m => m.TransactionDetailsPageModule)
   }
 ];
